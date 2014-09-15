@@ -154,6 +154,11 @@ double time_to_utc(int utc_offset, double time) {
 
 double time_from_utc(int utc_offset, double time)
 {
+	double t = to_24_hour_clock(time + utc_offset);
+	if (t < 0)
+		return 24 + t;
+	else return t;
+}
     /*
         Return UTC time in time zone utc_offset.
 
@@ -181,4 +186,3 @@ double time_from_utc(int utc_offset, double time)
         >>> time_from_utc(+1, 23.0)
         0.0
     */
-}
