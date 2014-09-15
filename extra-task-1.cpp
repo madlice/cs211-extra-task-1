@@ -89,6 +89,15 @@ double to_24_hour_clock(double hours)
         with integer and fractional part of a hours separately.
         
     */
+double get_hours(int seconds) {
+	return (seconds / 3600)%24;
+}
+double get_minutes(int seconds) {
+	return (seconds / 60) %60;
+}
+double get_seconds(int seconds) {
+	return seconds % 60;
+}
 
 /*
     Implement three functions
